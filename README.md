@@ -1,6 +1,7 @@
 # animepix
 
-A new Flutter project.
+Anime Wallpaper Application for Phones. 
+Wallpaers can be Downloaded For free.
 
 ## Getting Started
 
