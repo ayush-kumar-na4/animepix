@@ -15,6 +15,7 @@ void main() {
   Get.put(HomeController());
   Get.put(FavoritesController());
   
+  
   runApp(MyApp());
 }
 

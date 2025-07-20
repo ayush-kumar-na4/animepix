@@ -20,7 +20,7 @@ class FavoritesView extends GetView<FavoritesController> {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
-        
+
         if (controller.favorites.isEmpty) {
           return const Center(
             child: Column(
@@ -28,12 +28,15 @@ class FavoritesView extends GetView<FavoritesController> {
               children: [
                 Icon(Icons.favorite_border, size: 80, color: Colors.grey),
                 SizedBox(height: 16),
-                Text('No favorites yet', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                Text(
+                  'No favorites yet',
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
               ],
             ),
           );
         }
-        
+
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: MasonryGridView.count(
@@ -50,13 +53,10 @@ class FavoritesView extends GetView<FavoritesController> {
       }),
     );
   }
-  
+
   Widget _buildFavoriteCard(wallpaper) {
     return GestureDetector(
-      onTap: () => Get.toNamed(
-        Routes.WALLPAPER_DETAIL,
-        arguments: wallpaper,
-      ),
+      onTap: () => Get.toNamed(Routes.WALLPAPER_DETAIL, arguments: wallpaper),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
@@ -75,20 +75,20 @@ class FavoritesView extends GetView<FavoritesController> {
               CachedNetworkImage(
                 imageUrl: wallpaper.thumbs,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => Container(
-                  height: 200,
-                  color: Colors.grey[900],
-                  child: const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                ),
-                errorWidget: (context, url, error) => Container(
-                  height: 200,
-                  color: Colors.grey[900],
-                  child: const Center(
-                    child: Icon(Icons.error, color: Colors.red),
-                  ),
-                ),
+                placeholder:
+                    (context, url) => Container(
+                      height: 325,
+                      color: Colors.grey[900],
+                      child: const Center(child: CircularProgressIndicator()),
+                    ),
+                errorWidget:
+                    (context, url, error) => Container(
+                      height: 325,
+                      color: Colors.grey[900],
+                      child: const Center(
+                        child: Icon(Icons.error, color: Colors.red),
+                      ),
+                    ),
               ),
               Positioned(
                 top: 8,
